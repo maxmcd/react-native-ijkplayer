@@ -1,15 +1,15 @@
 {
   "name": "react-native-ijkplayer",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/king6cong/react-native-ijkplayer.git"
+    "type": "git",
+    "url": "https://github.com/uimeet/react-native-ijkplayer.git"
   },
-  "version": "0.3.8",
+  "version": "0.4.0",
   "description": "IJKPlayer for React Native.",
-  "author": "wangcong <king6cong@gmail.com>",
+  "author": "wangcong <uimeet@gmail.com>",
   "nativePackage": true,
   "license": "MIT",
-  "homepage": "https://github.com/king6cong/react-native-ijkplayer",
+  "homepage": "https://github.com/uimeet/react-native-ijkplayer",
   "keywords": [
     "react-native",
     "react",
