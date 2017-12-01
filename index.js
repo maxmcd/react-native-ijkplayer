@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import {
     NativeAppEventEmitter,
     NativeModules,
@@ -8,6 +8,7 @@ import {
     DeviceEventEmitter,
     View,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 const IJKPlayerManager = NativeModules.IJKPlayerManager || NativeModules.IJKPlayerModule;
 const REF = 'RCTIJKPlayer';
