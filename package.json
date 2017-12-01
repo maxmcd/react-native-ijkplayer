@@ -17,5 +17,8 @@
     "media",
     "ijkplayer",
     "player"
-  ]
+  ],
+  "dependencies": {
+    "react-native-vector-icons": "^4.4.2"
+  }
 }
