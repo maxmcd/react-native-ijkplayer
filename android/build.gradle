@@ -4,7 +4,9 @@ buildscript {
   }
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:1.2.3'
+    classpath 'com.android.tools.build:gradle:2.2.3'
+    classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+    classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
   }
 }
 
@@ -12,33 +14,42 @@ apply plugin: 'com.android.library'
 
 android {
   compileSdkVersion 23
-  buildToolsVersion "23.0.1"
+  buildToolsVersion "23.0.3"
 
   defaultConfig {
     minSdkVersion 21
-    targetSdkVersion 22
+    targetSdkVersion 23
     versionCode 1
     versionName "1.0"
   }
-  lintOptions {
-    abortOnError false
-    warning 'InvalidPackage'
+}
+
+allprojects {
+  repositories {
+    jcenter()
   }
 }
 
-repositories {
-  mavenCentral()
+dependencies {
+  compile "com.facebook.react:react-native:+"
+  compile project(':ijkplayer-java')
+  compile project(':ijkplayer-armv7a')
+  compile project(':ijkplayer-armv5')
+  compile project(':ijkplayer-arm64')
+  compile project(':ijkplayer-x86')
+  compile project(':ijkplayer-x86_64')
+  compile project(':ijkplayer-exo')
+//  compile 'tv.danmaku.ijk.media:ijkplayer-java:0.6.0'
+//  compile 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.6.0'
+//
+//  compile 'tv.danmaku.ijk.media:ijkplayer-armv5:0.6.0'
+//  compile 'tv.danmaku.ijk.media:ijkplayer-arm64:0.6.0'
+//  compile 'tv.danmaku.ijk.media:ijkplayer-x86:0.6.0'
+//  compile 'tv.danmaku.ijk.media:ijkplayer-x86_64:0.6.0'
+//
+//  compile 'tv.danmaku.ijk.media:ijkplayer-exo:0.6.0'
 }
 
-dependencies {
-  compile "com.facebook.react:react-native:0.19.+"
-  compile 'tv.danmaku.ijk.media:ijkplayer-java:0.6.0'
-  compile 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.6.0'
-
-  compile 'tv.danmaku.ijk.media:ijkplayer-armv5:0.6.0'
-  compile 'tv.danmaku.ijk.media:ijkplayer-arm64:0.6.0'
-  compile 'tv.danmaku.ijk.media:ijkplayer-x86:0.6.0'
-  compile 'tv.danmaku.ijk.media:ijkplayer-x86_64:0.6.0'
-
-  compile 'tv.danmaku.ijk.media:ijkplayer-exo:0.6.0'
+wrapper {
+  gradleVersion = '2.14.1'
 }

@@ -129,3 +129,8 @@ fabric.properties
 # *.ipr
 
 ios/IJKMediaFramework.framework/
+.DS_Store/
+.DS_Store
+package-lock.json
+node_modules/
+.idea/

@@ -22,7 +22,6 @@ public class RCTIJKPlayerPackage implements ReactPackage {
         return Collections.<NativeModule>singletonList(new RCTIJKPlayerModule(reactApplicationContext));
     }
 
-    @Override
     public List<Class<? extends JavaScriptModule>> createJSModules() {
         return Collections.emptyList();
     }
