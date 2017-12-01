@@ -40,7 +40,7 @@ public class RCTIJKPlayerView extends FrameLayout {
     public RCTIJKPlayerView(Context context) {
         super(context);
         this._context = context;
-        //this.activity = ((ReactContext) getContext()).getCurrentActivity();
+        this.activity = ((ReactContext) getContext()).getCurrentActivity();
         // framelayout = new FrameLayout(context);
 
         IjkMediaPlayer.loadLibrariesOnce(null);
