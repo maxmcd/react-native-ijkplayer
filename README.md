@@ -2,9 +2,10 @@
 
 How to build Example
 ```
-git clone https://github.com/king6cong/react-native-ijkplayer
-cd react-native-ijkplayer/Example
+git clone https://github.com/uimeet/react-native-ijkplayer-example.git
+cd react-native-ijkplayer-example
 npm install
+react-native run-android
 ```
 
 ### iOS
