@@ -28,18 +28,28 @@ android {
 allprojects {
   repositories {
     jcenter()
+    flatDir {
+      dirs 'libs'
+    }
   }
 }
 
 dependencies {
   compile 'com.facebook.react:react-native:+'
-  compile project(':ijkplayer-java')
-  compile project(':ijkplayer-armv7a')
-  compile project(':ijkplayer-armv5')
-  compile project(':ijkplayer-arm64')
-  compile project(':ijkplayer-x86')
-  compile project(':ijkplayer-x86_64')
-  compile project(':ijkplayer-exo')
+  compile(name:'ijkplayer-java-release', ext:'aar')
+  compile(name:'ijkplayer-armv7a-release', ext:'aar')
+  compile(name:'ijkplayer-armv5-release', ext:'aar')
+  compile(name:'ijkplayer-arm64-release', ext:'aar')
+  compile(name:'ijkplayer-x86-release', ext:'aar')
+  compile(name:'ijkplayer-x86_64-release', ext:'aar')
+  compile(name:'ijkplayer-exo-release', ext:'aar')
+//  compile project(':ijkplayer-java')
+//  compile project(':ijkplayer-armv7a')
+//  compile project(':ijkplayer-armv5')
+//  compile project(':ijkplayer-arm64')
+//  compile project(':ijkplayer-x86')
+//  compile project(':ijkplayer-x86_64')
+//  compile project(':ijkplayer-exo')
   //  compile 'tv.danmaku.ijk.media:ijkplayer-java:0.6.0'
   //  compile 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.6.0'
   //
