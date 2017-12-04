@@ -681,6 +681,24 @@ public class IjkVideoView extends FrameLayout {
         return 0;
     }
 
+    public int getVideoWidth() {
+        if (mMediaPlayer != null) {
+            return mMediaPlayer.getVideoWidth();
+        }
+        return 0;
+    }
+
+    public int getVideoHeight() {
+        if (mMediaPlayer != null) {
+            return mMediaPlayer.getVideoHeight();
+        }
+        return 0;
+    }
+
+    public IMediaPlayer player() {
+        return mMediaPlayer;
+    }
+
     private boolean isInPlaybackState() {
         return (mMediaPlayer != null &&
                 mCurrentState != STATE_ERROR &&

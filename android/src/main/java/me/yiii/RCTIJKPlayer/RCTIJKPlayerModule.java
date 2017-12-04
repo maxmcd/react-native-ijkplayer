@@ -102,6 +102,8 @@ public class RCTIJKPlayerModule extends ReactContextBaseJavaModule {
         data.putString("playbackState", Integer.toString(playbackState));
         data.putString("loadState", "");
         data.putString("isPreparedToPlay", "");
+        data.putString("videoWidth", Integer.toString(player.getVideoWidth()));
+        data.putString("videoHeight", Integer.toString(player.getVideoWidth()));
         promise.resolve(data);
     }
 
