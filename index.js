@@ -27,6 +27,9 @@ export default class RCTIJKPlayer extends Component {
         IJKMPMoviePlaybackStateInterrupted: 3,
         IJKMPMoviePlaybackStateSeekingForward: 4,
         IJKMPMoviePlaybackStateSeekingBackward: 5,
+        IJKMPMoviePlaybackStatePreparing: 6,
+        IJKMPMoviePlaybackStatePrepared: 7,
+        IJKMPMoviePlaybackStatePlayCompleted: 8,
     }
 
     static constants = {
@@ -34,12 +37,15 @@ export default class RCTIJKPlayer extends Component {
     };
 
     static propTypes = {
-            ...View.propTypes,
-        push_url: PropTypes.string,
-        onLiveStateChange: PropTypes.func,
+        ...View.propTypes,
+        // push_url: PropTypes.string,
+        // onLiveStateChange: PropTypes.func,
+        onPlayBackInfo: PropTypes.func,
+        progressUpdateInterval: PropTypes.number,
     };
 
     static defaultProps = {
+        progressUpdateInterval: 250.0,
     };
 
     setNativeProps(props) {
@@ -55,12 +61,16 @@ export default class RCTIJKPlayer extends Component {
     }
 
     async componentWillMount() {
-        const emitter = Platform.OS == 'ios' ? NativeAppEventEmitter : DeviceEventEmitter;
+        //const emitter = Platform.OS == 'ios' ? NativeAppEventEmitter : DeviceEventEmitter;
         // this.playBackStateChangeListener = emitter.addListener('PlayBackState', this._onPlayBackStateChange);
+        this._timer = setInterval(this.playbackInfo.bind(this), this.props.progressUpdateInterval);
     }
 
     componentWillUnmount() {
         // this.playBackStateChangeListener.remove();
+        if (this._timer) {
+            clearInterval(this._timer);
+        }
         this.stop();
         this.shutdown();
     }
@@ -110,9 +120,7 @@ export default class RCTIJKPlayer extends Component {
                     if (data.hasOwnProperty(k)) {
                         data[k] = +data[k];
                     }
-
                 }
-                // console.log(data);
                 if (self.props.onPlayBackInfo) self.props.onPlayBackInfo(data);
             }).catch(error => console.log("error", error));
     }

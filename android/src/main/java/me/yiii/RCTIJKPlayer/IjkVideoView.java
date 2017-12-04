@@ -658,13 +658,13 @@ public class IjkVideoView extends FrameLayout {
             state = 2;
             break;
         case STATE_PREPARING:
-            state = 4;
+            state = 6;
             break;
         case STATE_PREPARED:
-            state = 5;
+            state = 7;
             break;
         case STATE_PLAYBACK_COMPLETED:
-            state = 6;
+            state = 8;
             break;
         case STATE_IDLE:
         default:
