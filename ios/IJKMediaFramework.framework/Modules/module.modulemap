@@ -1,5 +1,5 @@
-framework module IJKMediaFrameworkWithSSL {
-  umbrella header "IJKMediaFrameworkWithSSL.h"
+framework module IJKMediaFramework {
+  umbrella header "IJKMediaFramework.h"
 
   export *
   module * { export * }
