@@ -128,7 +128,7 @@ fabric.properties
 # .idea/misc.xml
 # *.ipr
 
-ios/IJKMediaFramework.framework/
+#ios/IJKMediaFramework.framework/
 .DS_Store/
 .DS_Store
 package-lock.json
