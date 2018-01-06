@@ -762,7 +762,7 @@ public class IjkVideoView extends FrameLayout {
     public static final int RENDER_TEXTURE_VIEW = 2;
 
     private void initRenders() {
-        setRender(RENDER_TEXTURE_VIEW);
+        setRender(RENDER_SURFACE_VIEW);
 
     }
 

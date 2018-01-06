@@ -101,10 +101,19 @@ public class RCTIJKPlayerView extends FrameLayout {
 
     }
 
+    public void resetView() {
+        if (mIJKPlayerView == null) {
+            Log.e(TAG, String.format("###### resetView ######"));
+            mIJKPlayerView = new IjkVideoView(_context);
+            addView(mIJKPlayerView);
+        }
+    }
+
     public void start(final String URL) {
         Log.e(TAG, String.format("start URL %s", URL));
         UiThreadUtil.runOnUiThread(new Runnable() {
             public void run() {
+                //resetView();
                 mIJKPlayerView.setVideoPath(URL);
                 mIJKPlayerView.start();
                 // RCTIJKPlayerView.this.invalidate();
@@ -116,6 +125,12 @@ public class RCTIJKPlayerView extends FrameLayout {
     public void stop() {
         Log.e(TAG, String.format("stop"));
         mIJKPlayerView.stopPlayback();
+//        UiThreadUtil.runOnUiThread(new Runnable() {
+//            public void run() {
+//                removeView(mIJKPlayerView);
+//                mIJKPlayerView = null;
+//            }
+//        });
     }
 
     public void pause() {
