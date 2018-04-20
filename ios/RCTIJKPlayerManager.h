@@ -1,9 +1,5 @@
-#import "RCTViewManager.h"
-
-@class RCTIJKPlayer;
+#import <React/RCTViewManager.h>
 
 @interface RCTIJKPlayerManager : RCTViewManager
-
-@property (nonatomic, strong) RCTIJKPlayer *rctijkplayer;
 
 @end

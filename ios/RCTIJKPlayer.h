@@ -1,22 +1,20 @@
-#import <UIKit/UIKit.h>
+#import <React/RCTView.h>
 #import <AVFoundation/AVFoundation.h>
 #import <IJKMediaFrameworkWithSSL/IJKMediaFrameworkWithSSL.h>
-/* @class IJKMediaControl; */
 
-@class RCTIJKPlayerManager;
+@class RCTEventDispatcher;
 
 @interface RCTIJKPlayer : UIView
 
-@property(atomic,strong) NSURL *url;
-@property(atomic, retain) id<IJKMediaPlayback> player;
-//@property(nonatomic,strong) IBOutlet IJKMediaControl *mediaControl;
+@property (nonatomic, copy) RCTBubblingEventBlock onVideoLoadStart;
+@property (nonatomic, copy) RCTBubblingEventBlock onVideoLoad;
+@property (nonatomic, copy) RCTBubblingEventBlock onVideoBuffer;
+@property (nonatomic, copy) RCTBubblingEventBlock onVideoError;
+@property (nonatomic, copy) RCTBubblingEventBlock onVideoProgress;
+@property (nonatomic, copy) RCTBubblingEventBlock onVideoPause;
+@property (nonatomic, copy) RCTBubblingEventBlock onVideoStop;
+@property (nonatomic, copy) RCTBubblingEventBlock onVideoEnd;
 
+- (instancetype)initWithEventDispatcher:(RCTEventDispatcher *)eventDispatcher NS_DESIGNATED_INITIALIZER;
 
-- (id)initWithManager:(RCTIJKPlayerManager*)manager bridge:(RCTBridge *)bridge;
-- (void)startWithOptions:(NSDictionary *)options;
-- (void)stop;
-- (void)resume;
-- (void)pause;
-- (void)shutdown;
-- (void)seekTo:(NSTimeInterval)currentPlaybackTime;
 @end
