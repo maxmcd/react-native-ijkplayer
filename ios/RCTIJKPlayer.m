@@ -91,6 +91,8 @@
     NSURL* url = [NSURL URLWithString:uri];
 
     IJKFFOptions *ijkOptions = [IJKFFOptions optionsByDefault];
+    [ijkOptions setOptionIntValue:1 forKey:@"infbuf" ofCategory:kIJKFFOptionCategoryPlayer];
+    [ijkOptions setOptionIntValue:0 forKey:@"packet-buffering" ofCategory:kIJKFFOptionCategoryPlayer];
     _player = [[IJKFFMoviePlayerController alloc] initWithContentURL:url withOptions:ijkOptions];
     _player.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     _player.view.frame = self.bounds;
