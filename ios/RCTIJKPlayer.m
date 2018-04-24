@@ -86,13 +86,19 @@
         [_player shutdown];
     _started = NO;
 
-    NSArray* options = [source objectForKey:@"options"];
+    NSDictionary* headers = [source objectForKey:@"headers"];
     NSString* uri = [source objectForKey:@"uri"];
     NSURL* url = [NSURL URLWithString:uri];
 
     IJKFFOptions *ijkOptions = [IJKFFOptions optionsByDefault];
     [ijkOptions setOptionIntValue:1 forKey:@"infbuf" ofCategory:kIJKFFOptionCategoryPlayer];
     [ijkOptions setOptionIntValue:0 forKey:@"packet-buffering" ofCategory:kIJKFFOptionCategoryPlayer];
+    if(headers) {
+        NSMutableArray *headerArray = [[NSMutableArray alloc] init];
+        for(id key in headers)
+            [headerArray addObject:[NSString stringWithFormat:@"%@=%@", key, [headers objectForKey:key] ]];
+        [ijkOptions setFormatOptionValue:[headerArray componentsJoinedByString:@"\r\n"] forKey:@"headers"];
+    }
     _player = [[IJKFFMoviePlayerController alloc] initWithContentURL:url withOptions:ijkOptions];
     _player.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     _player.view.frame = self.bounds;
@@ -116,6 +122,12 @@
                                     });
     });
     [_player prepareToPlay];
+}
+
+- (void)setSeek:(int)seekTime
+{
+    if(_player && _player.isPreparedToPlay)
+        [_player setCurrentPlaybackTime:seekTime * 1000.0];
 }
 
 - (void)onProgressUpdate

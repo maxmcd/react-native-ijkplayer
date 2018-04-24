@@ -5,11 +5,15 @@ import android.widget.FrameLayout;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.LifecycleEventListener;
+import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.bridge.ReadableMapKeySetIterator;
+import com.facebook.react.bridge.ReadableType;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.Callable;
 
 import bolts.Task;
@@ -48,11 +52,8 @@ public class RCTIJKPlayer extends FrameLayout implements LifecycleEventListener,
 
     public static final String EVENT_PROP_BUFFERING_PROG = "progress";
 
-    private ThemedReactContext mThemedReactContext;
     private RCTEventEmitter mEventEmitter;
 
-    private String mSrcUriString = null;
-    private ArrayList<Object> mSrcOptions = null;
     private boolean mPaused = false;
     private boolean mMuted = false;
     private float mVolume = 1.0f;
@@ -70,7 +71,6 @@ public class RCTIJKPlayer extends FrameLayout implements LifecycleEventListener,
     public RCTIJKPlayer(ThemedReactContext themedReactContext) {
         super(themedReactContext);
 
-        mThemedReactContext = themedReactContext;
         mEventEmitter = themedReactContext.getJSModule(RCTEventEmitter.class);
         themedReactContext.addLifecycleEventListener(this);
 
@@ -119,12 +119,9 @@ public class RCTIJKPlayer extends FrameLayout implements LifecycleEventListener,
             });
     }
 
-    public void setSrc(final String uriString, final ArrayList<Object> options) {
+    public void setSrc(final String uriString, final ReadableMap readableMap) {
         if(uriString == null)
             return;
-
-        mSrcUriString = uriString;
-        mSrcOptions = options;
 
         mLoaded = false;
         mStalled = false;
@@ -135,7 +132,22 @@ public class RCTIJKPlayer extends FrameLayout implements LifecycleEventListener,
         event.putMap(RCTIJKPlayerManager.PROP_SRC, src);
         mEventEmitter.receiveEvent(getId(), Events.EVENT_LOAD_START.toString(), event);
 
-        ijkVideoView.setVideoPath(uriString);
+        if(readableMap != null) {
+            Map<String, String> headerMap = new HashMap<>();
+            ReadableMapKeySetIterator iterator = readableMap.keySetIterator();
+            while (iterator.hasNextKey()) {
+                String key = iterator.nextKey();
+                ReadableType type = readableMap.getType(key);
+                switch (type) {
+                    case String:
+                        headerMap.put(key, readableMap.getString(key));
+                        break;
+                }
+            }
+            ijkVideoView.setVideoPath(uriString, headerMap);
+        }
+        else
+            ijkVideoView.setVideoPath(uriString);
     }
 
     public void setPausedModifier(final boolean paused) {
@@ -151,6 +163,11 @@ public class RCTIJKPlayer extends FrameLayout implements LifecycleEventListener,
                 mProgressUpdateHandler.post(mProgressUpdateRunnable);
             }
         }
+    }
+
+    public void setSeekModifier(final double seekTime) {
+        if(ijkVideoView != null)
+            ijkVideoView.seekTo((int) (seekTime * 1000));
     }
 
     public void setMutedModifier(final boolean muted) {

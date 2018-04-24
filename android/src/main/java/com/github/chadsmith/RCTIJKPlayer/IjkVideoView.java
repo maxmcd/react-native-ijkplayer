@@ -199,6 +199,15 @@ public class IjkVideoView extends FrameLayout implements MediaController.MediaPl
     }
 
     /**
+     * Sets video path.
+     *
+     * @param path the path of the video.
+     */
+    public void setVideoPath(String path, Map<String, String> headers) {
+        setVideoURI(Uri.parse(path), headers);
+    }
+
+    /**
      * Sets video URI.
      *
      * @param uri the URI of the video.

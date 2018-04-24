@@ -19,6 +19,10 @@ export default class IJKPlayer extends Component {
     this._root.setNativeProps(nativeProps);
   }
 
+  seek = (time) => {
+    this.setNativeProps({ seek: time });
+  };
+
   _assignRoot = (component) => {
     this._root = component;
   };
@@ -72,7 +76,7 @@ export default class IJKPlayer extends Component {
   };
 
   render() {
-    const options = this.props.options || [];
+    const headers = this.props.headers || {};
     const source = resolveAssetSource(this.props.source) || {};
 
     let uri = source.uri || '';
@@ -85,7 +89,7 @@ export default class IJKPlayer extends Component {
       style: [ styles.base, nativeProps.style ],
       src: {
         uri,
-        options,
+        headers,
       },
       onVideoLoadStart: this._onLoadStart,
       onVideoLoad: this._onLoad,
@@ -109,6 +113,7 @@ export default class IJKPlayer extends Component {
 IJKPlayer.propTypes = {
   /* Native only */
   src: PropTypes.object,
+  seek: PropTypes.number,
   onVideoLoadStart: PropTypes.func,
   onVideoLoad: PropTypes.func,
   onVideoBuffer: PropTypes.func,
@@ -119,7 +124,7 @@ IJKPlayer.propTypes = {
   onVideoEnd: PropTypes.func,
 
   /* Wrapper component */
-  options: PropTypes.array,
+  headers: PropTypes.object,
   source: PropTypes.oneOfType([
     PropTypes.shape({
       uri: PropTypes.string
@@ -151,5 +156,6 @@ IJKPlayer.propTypes = {
 const RCTIJKPlayer = requireNativeComponent('RCTIJKPlayer', IJKPlayer, {
   nativeOnly: {
     src: true,
+    seek: true,
   },
 });
