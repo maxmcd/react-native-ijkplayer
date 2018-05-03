@@ -133,16 +133,16 @@
 - (void)onProgressUpdate
 {
     if(_player && _player.isPlaying && self.onVideoProgress) {
-        int currentTime   = (int) [_player currentPlaybackTime];
-        int duration      = (int) [_player duration];
-        int remainingTime = duration - currentTime;
+        float currentTime   = (float) [_player currentPlaybackTime];
+        float duration      = (float) [_player duration];
+        float remainingTime = duration - currentTime;
         float position = duration > 0 ? currentTime / duration : 0.0;
         if(currentTime >= 0 && (duration == 0 || currentTime < duration))
             self.onVideoProgress(@{
                                    @"target": self.reactTag,
-                                   @"currentTime": [NSNumber numberWithInt:currentTime],
-                                   @"remainingTime": [NSNumber numberWithInt:remainingTime],
-                                   @"duration":[NSNumber numberWithInt:duration],
+                                   @"currentTime": [NSNumber numberWithFloat:currentTime],
+                                   @"remainingTime": [NSNumber numberWithFloat:remainingTime],
+                                   @"duration":[NSNumber numberWithFloat:duration],
                                    @"position":[NSNumber numberWithFloat:position]
                                    });
     }
