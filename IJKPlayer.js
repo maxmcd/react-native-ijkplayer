@@ -1,16 +1,20 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { StyleSheet, requireNativeComponent, View, ViewPropTypes } from 'react-native';
-import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import {
+  StyleSheet,
+  requireNativeComponent,
+  View,
+  ViewPropTypes
+} from "react-native";
+import resolveAssetSource from "react-native/Libraries/Image/resolveAssetSource";
 
 const styles = StyleSheet.create({
   base: {
-    overflow: 'hidden',
-  },
+    overflow: "hidden"
+  }
 });
 
 export default class IJKPlayer extends Component {
-
   constructor(props) {
     super(props);
   }
@@ -19,57 +23,57 @@ export default class IJKPlayer extends Component {
     this._root.setNativeProps(nativeProps);
   }
 
-  seek = (time) => {
+  seek = time => {
     this.setNativeProps({ seek: time });
   };
 
-  _assignRoot = (component) => {
+  _assignRoot = component => {
     this._root = component;
   };
 
-  _onLoadStart = (event) => {
+  _onLoadStart = event => {
     if (this.props.onLoadStart) {
       this.props.onLoadStart(event.nativeEvent);
     }
   };
 
-  _onLoad = (event) => {
+  _onLoad = event => {
     if (this.props.onLoad) {
       this.props.onLoad(event.nativeEvent);
     }
   };
 
-  _onError = (event) => {
+  _onError = event => {
     if (this.props.onError) {
       this.props.onError(event.nativeEvent);
     }
   };
 
-  _onProgress = (event) => {
+  _onProgress = event => {
     if (this.props.onProgress) {
       this.props.onProgress(event.nativeEvent);
     }
   };
 
-  _onPause = (event) => {
+  _onPause = event => {
     if (this.props.onPause) {
       this.props.onPause(event.nativeEvent);
     }
   };
 
-  _onStop = (event) => {
+  _onStop = event => {
     if (this.props.onStop) {
       this.props.onStop(event.nativeEvent);
     }
   };
 
-  _onEnd = (event) => {
+  _onEnd = event => {
     if (this.props.onEnd) {
       this.props.onEnd(event.nativeEvent);
     }
   };
 
-  _onBuffer = (event) => {
+  _onBuffer = event => {
     if (this.props.onBuffer) {
       this.props.onBuffer(event.nativeEvent);
     }
@@ -79,17 +83,17 @@ export default class IJKPlayer extends Component {
     const headers = this.props.headers || {};
     const source = resolveAssetSource(this.props.source) || {};
 
-    let uri = source.uri || '';
+    let uri = source.uri || "";
     if (uri && uri.match(/^\//)) {
       uri = `file://${uri}`;
     }
 
     const nativeProps = Object.assign({}, this.props);
     Object.assign(nativeProps, {
-      style: [ styles.base, nativeProps.style ],
+      style: [styles.base, nativeProps.style],
       src: {
         uri,
-        headers,
+        headers
       },
       onVideoLoadStart: this._onLoadStart,
       onVideoLoad: this._onLoad,
@@ -98,16 +102,11 @@ export default class IJKPlayer extends Component {
       onVideoPause: this._onPause,
       onVideoStop: this._onStop,
       onVideoEnd: this._onEnd,
-      onVideoBuffer: this._onBuffer,
+      onVideoBuffer: this._onBuffer
     });
 
-    return (
-      <RCTIJKPlayer
-        ref={this._assignRoot}
-        {...nativeProps} />
-    );
+    return <RCTIJKPlayer ref={this._assignRoot} {...nativeProps} />;
   }
-
 }
 
 IJKPlayer.propTypes = {
@@ -150,12 +149,12 @@ IJKPlayer.propTypes = {
   translateX: PropTypes.number,
   translateY: PropTypes.number,
   rotation: PropTypes.number,
-  ...ViewPropTypes,
+  ...ViewPropTypes
 };
 
-const RCTIJKPlayer = requireNativeComponent('RCTIJKPlayer', IJKPlayer, {
+const RCTIJKPlayer = requireNativeComponent("RCTIJKPlayer", IJKPlayer, {
   nativeOnly: {
     src: true,
-    seek: true,
-  },
+    seek: true
+  }
 });
