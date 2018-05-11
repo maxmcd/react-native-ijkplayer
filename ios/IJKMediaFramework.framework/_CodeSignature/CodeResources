@@ -10,11 +10,11 @@
 		</data>
 		<key>Headers/IJKFFMonitor.h</key>
 		<data>
-		G5UaR/deDnfPy/t01dyLEZPWy8g=
+		g4SK5hvaabpQn3kb7IUQAsTT0Sk=
 		</data>
 		<key>Headers/IJKFFMoviePlayerController.h</key>
 		<data>
-		hLf0bErzBiAwTeKhZShA+MO7x7k=
+		5pKt7kfweiNGK9g6MmcXTcGzoy8=
 		</data>
 		<key>Headers/IJKFFOptions.h</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/IJKMediaFramework.h</key>
 		<data>
-		j67XBGgO3JRwM2drBaOegCYRR+c=
+		8G/tXOyo8La9v0ZXcck/if6TMQo=
 		</data>
 		<key>Headers/IJKMediaModule.h</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Headers/IJKMediaPlayback.h</key>
 		<data>
-		LmxwZLijDPprGf6symc0mqLt6bk=
+		XP7dGscqz5DFTrp5D86iBwJqsuQ=
 		</data>
 		<key>Headers/IJKMediaPlayer.h</key>
 		<data>
@@ -48,9 +48,13 @@
 		<data>
 		yDjyoucGxP7bv3yGJS1ECqMJTAE=
 		</data>
+		<key>Headers/IJKSDLGLViewProtocol.h</key>
+		<data>
+		XkJ4PXWgDZGwv/ac9jETJAFBlv4=
+		</data>
 		<key>Info.plist</key>
 		<data>
-		IibPJXr0DF9JuYji36nNY0+lIPQ=
+		Tg7/ph8OiT3EaiuS9D87Zv38WJI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -74,22 +78,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			G5UaR/deDnfPy/t01dyLEZPWy8g=
+			g4SK5hvaabpQn3kb7IUQAsTT0Sk=
 			</data>
 			<key>hash2</key>
 			<data>
-			EF9jO1+VVW/Z5ngpaIBYTk7UqDvIoGIW7yN55FU67BY=
+			Ky/OPBMccySgEwHc04rBt0BJRx1uIjSTqi0dtSX4Ko8=
 			</data>
 		</dict>
 		<key>Headers/IJKFFMoviePlayerController.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			hLf0bErzBiAwTeKhZShA+MO7x7k=
+			5pKt7kfweiNGK9g6MmcXTcGzoy8=
 			</data>
 			<key>hash2</key>
 			<data>
-			ltXTd5NYPdasB6V38sYyFqiquTBYn1Hbwo7MWLK768w=
+			4r9EKI1moLHqsUOJgqd3ghmv+UdtEYZHJzAaxxHcdPg=
 			</data>
 		</dict>
 		<key>Headers/IJKFFOptions.h</key>
@@ -129,11 +133,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			j67XBGgO3JRwM2drBaOegCYRR+c=
+			8G/tXOyo8La9v0ZXcck/if6TMQo=
 			</data>
 			<key>hash2</key>
 			<data>
-			/B2OuooOFvvyN5eRuHutcWN1JDjoGFCU8iuemFmOPl8=
+			Ft5GT2QPjZgu3nG38TPKGZt8XIG9pCJT14Wdg3L7Z8w=
 			</data>
 		</dict>
 		<key>Headers/IJKMediaModule.h</key>
@@ -151,11 +155,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			LmxwZLijDPprGf6symc0mqLt6bk=
+			XP7dGscqz5DFTrp5D86iBwJqsuQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			hhF5rEat6FJrB8l+Kqnn76BvJgNTpIRssnb1lNBLjeA=
+			NelbQWJvQxuSJi2f/t76G2rhS8qq6j97u7vRfMmVMkQ=
 			</data>
 		</dict>
 		<key>Headers/IJKMediaPlayer.h</key>
@@ -178,6 +182,17 @@
 			<key>hash2</key>
 			<data>
 			s4EPRg8OPuFCmb3dV4K8rgjCHZmLUwuGUBWjO10GwIw=
+			</data>
+		</dict>
+		<key>Headers/IJKSDLGLViewProtocol.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			XkJ4PXWgDZGwv/ac9jETJAFBlv4=
+			</data>
+			<key>hash2</key>
+			<data>
+			ABzjo5hGkzAZq8PJbzA+6Wm3mXvM+DU8XjKBfT8t+lU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

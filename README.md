@@ -2,6 +2,8 @@
 
 A react native component for [ijkplayer](https://github.com/Bilibili/ijkplayer)
 
+Download framework: https://storage.googleapis.com/rivet/IJKMediaFramework
+
 ### iOS
 
 Add podspec to your Podfile.

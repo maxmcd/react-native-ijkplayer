@@ -1,6 +1,7 @@
 node_modules/**/*
 ios/RCTIJKPlayer.xcodeproj/xcuserdata/**/*
 ios/RCTIJKPlayer.xcodeproj/project.xcworkspace/**/*
+ios/IJKMediaFramework.framework/IJKMediaFramework
 npm-debug.log
 .DS_Store
 build/
