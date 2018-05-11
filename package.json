@@ -5,8 +5,12 @@
   "main": "./IJKPlayer.js",
   "module": "./IJKPlayer.js",
   "license": "MIT",
-  "author": "Chad Smith <chad@developer.email> (https://github.com/chadsmith)",
+  "author": "Max McDonnell <max.t.mcdonnell@gmail.com>",
   "contributors": [
+    {
+      "name": "Chad Smith",
+      "email": "chad@developer.email"
+    },
     {
       "name": "wangcong",
       "email": "king6cong@gmail.com"
@@ -16,6 +20,9 @@
       "email": "uimeet@gmail.com"
     }
   ],
+  "scripts": {
+    "postinstall": "sh postinstall.sh"
+  },
   "homepage": "https://github.com/chadsmith/react-native-ijkplayer",
   "repository": {
     "type": "git",
